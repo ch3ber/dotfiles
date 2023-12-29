@@ -12,11 +12,23 @@
 ;==========================================================
 
 [colors]
-# Material ocean theme
-background = #0F111A
-foreground = #8F93A2
+; material ocean theme
+; transparency background
+; 80%
+;background = #cc0f111a
+; 85%
+;background = #d90f111a
+; 90%
+;background = #e60f111a
+; 95%
+;background = #0f0f111a
+
+; uncomment the next line to disable transparency
+background = #0f111a
+
+foreground = #8f93a2
 text = #4b526d
-selection_background = #717cb480
+selection_background = #717cb4
 selection_foreground = #ffffff
 second_background = #181a1f
 disabled = #464b5d
@@ -37,14 +49,7 @@ white = #eeffff
 error = #ff5370
 
 ;background = ${xrdb:color0:#222}
-background-alt = ${colors.accent}
-
 ;foreground = ${xrdb:color7:#222}
-foreground-alt = #685d98
-
-primary = #89ddff 
-secondary = #e60053
-alert = ${colors.red}
 
 [settings]
 screenchange-reload = true
@@ -76,7 +81,7 @@ line-size = 0
 line-color = ${colors.accent}
 
 border-size = 3
-border-color = ${colors.contrast} 
+border-color = ${colors.contrast}
 
 padding-left = 1
 padding-right = 1
@@ -123,7 +128,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 border-size = 3
-border-color = ${colors.contrast} 
+border-color = ${colors.contrast}
 
 padding-left = 2
 padding-right = 2
@@ -146,9 +151,9 @@ radius = 10.0
 fixed-center = true
 
 background = ${colors.background}
-foreground = ${colors.foreground}
+foreground = ${colors.accent}
 border-size = 3
-border-color = ${colors.contrast} 
+border-color = ${colors.contrast}
 padding-left = 2
 padding-right = 2
 
@@ -173,7 +178,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 border-size = 3
-border-color = ${colors.contrast} 
+border-color = ${colors.contrast}
 
 padding-left = 2
 padding-right = 2
@@ -210,7 +215,7 @@ background = ${colors.background}
 foreground = ${colors.foreground}
 
 border-size = 3
-border-color = ${colors.contrast} 
+border-color = ${colors.contrast}
 
 padding-left = 2
 padding-right = 2
@@ -273,8 +278,8 @@ enable-click = true
 enable-scroll = false
 reverse-scroll = false
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
+ws-icon-0 = 1;
+ws-icon-1 = 2;
 ws-icon-2 = 3;
 ws-icon-3 = 4;
 ws-icon-4 = 5;
@@ -282,25 +287,21 @@ ws-icon-5 = 6;
 ws-icon-6 = 7;
 ws-icon-7 = 8;
 ws-icon-8 = 9;
-ws-icon-9 = 10;󰓇
+ws-icon-9 = 10;
 ws-icon-default = ""
 
 format = <label-state> <label-mode>
 
 label-empty = %icon%
-label-empty-foreground = ${colors.white}
 label-empty-padding = 1
 
 label-focused = %icon%
-label-focused-background = ${colors.background}
-;label-focused-underline= #6790eb
 label-focused-padding = 1
-label-focused-foreground = ${colors.accent}
+label-focused-foreground = ${colors.red}
 
 label-occupied = %icon%
 label-occupied-padding = 1
-label-occupied-background = ${colors.background}
-label-occupied-foreground = ${colors.purple}
+label-occupied-foreground = ${colors.yellow}
 
 label-urgent = %icon%
 label-urgent-padding = 1
@@ -345,14 +346,14 @@ ramp-foreground = ${colors.accent}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = " "
 format-prefix-foreground = ${colors.accent}
 label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "  "
+format-prefix = "󰓅 "
 format-prefix-foreground = ${colors.accent}
 label = %percentage_used%%
 
@@ -382,13 +383,11 @@ type = internal/network
 interface = eth0
 interval = 3.0
 
-;format-connected-underline = #55aa55
 ;format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 label-connected =%{F#4be349}  %{F-} %local_ip% %upspeed% %downspeed%
 
 format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected =%{F#e30c05} %{F-} disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
@@ -406,12 +405,12 @@ type = internal/alsa
 
 format-volume = <label-volume>
 format-volume-prefix = "  "
-format-volume-prefix-foreground =${colors.accent} 
+format-volume-prefix-foreground =${colors.accent}
 label-volume = %percentage%%
 label-volume-foreground = ${colors.foreground}
 
 format-muted-prefix = "󰝟 "
-format-muted-prefix-foreground =${colors.red} 
+format-muted-prefix-foreground =${colors.red}
 format-muted-foreground = ${colors.yellow}
 label-muted = mute
 
@@ -422,7 +421,7 @@ adapter = AC
 full-at = 100
 
 format-charging = <animation-charging> <label-charging>
-format-discharging = <label-discharging>
+format-discharging = <ramp-capacity> <label-discharging>
 
 animation-charging-0 = 
 animation-charging-1 = 
@@ -431,16 +430,15 @@ animation-charging-3 = 
 animation-charging-foreground = ${colors.accent}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
-animation-discharging-3 = 
-animation-discharging-4 = 
-;animation-discharging-foreground = ${colors.foreground-alt}
-animation-discharging-framerate = 750
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.accent}
+
 label-charging = " %percentage%%"
-label-discharging =   %percentage%%
-label-full =   %percentage%%
+label-discharging = " %percentage%%"
 
 [module/cava]
 type = custom/script
@@ -449,7 +447,7 @@ exec = $HOME/.config/polybar/cava.sh
 format = <label>
 format-font = 5
 label = %output%
-label-foreground = ${colors.accent}
+label-foreground = ${colors.yellow}
 
 [module/powermenu]
 type = custom/menu
@@ -462,7 +460,7 @@ label-open = 
 label-open-foreground = ${colors.secondary}
 label-close = 
 label-close-foreground = ${colors.foreground-alt}
-label-separator = - 
+label-separator = -
 label-separator-foreground = ${colors.foreground-alt}
 
 menu-0-0 = reboot
@@ -472,9 +470,7 @@ menu-0-1-exec = systemctl poweroff
 menu-1-0 = attia
 menu-1-0-exec = menu-open-0
 
-
 ;menu-2-0 = power off
 ;menu-2-0-exec = sudo poweroff
 ;menu-2-1 = cancel
 ;menu-2-1-exec = menu-open-0
-
