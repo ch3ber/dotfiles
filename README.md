@@ -1,69 +1,91 @@
-# ch3ber DOTFILES
+# Depencies
+`pacman -S neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi feh polybar`
 
-### Installation
+### Extra
+pacman -S network-manager-applet
+To run `nm-applet`
 
-Make sure you have committed the alias to your `.bashrc` or `.zsh`:
-```bash
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+# Depencies for parrot os
+`apt install vim neovim lsd bat zsh acpi rofi feh polybar build-essential xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev`
+
+# Fonts
+Mononoki Nerd Font
+Ubuntu Mono Nerd Font
+
+# ZSH config
+
+## Oh My Zsh
+I like use oh my zsh like plugin manager.
+
+**What is?**
+"Oh My Zsh is a delightful, open source, community-driven framework for managing your Zsh configuration." `https://ohmyz.sh`
+
+## Theme
+Set the theme with `ZSH_THEME="bira"`
+
+## Plugins
+
+### How to activate the plugins
+Into the `~/.zshrc` file search for `plugins=(plugin-name another-plugin)`
+
+[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+`git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting`
+
+[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+`git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions`
+
+[you-should-use](https://github.com/MichaelAquilina/zsh-you-should-use)
+`git clone https://github.com/MichaelAquilina/zsh-you-should-use.git $ZSH_CUSTOM/plugins/you-should-use`
+
+### Alias
+```
+alias ls=/bin/lsd
+alias cat=/bin/batcat
+alias szsh="source ~/.zshrc"
 ```
 
-Source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems:
-```bash
-echo "dotfiles" >> .gitignore
+# Alacritty
+
+### Config
+
+# Install manual bspwm and sxhkd
+```
+git clone https://github.com/baskerville/bspwm.git
+git clone https://github.com/baskerville/sxhkd.git
 ```
 
-Clone your dotfiles into a bare repository in a "dot" folder of your `$HOME`:
-```bash
-git clone --bare https://github.com/ch3ber/dotfiles.git $HOME/dotfiles
-```
+`
+mkdir ~/.config/bspwm
+mkdir ~/.config/sxhkd
+`
 
-Define the alias in the current shell scope:
-```bash
-alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-```
+## polybar
 
-Checkout the actual content from the bare repository to your `$HOME`:
-```bash
-config checkout
-```
+Depencies `cava` for sound visualizer
 
-The step above might fail with a message like:
-```
-error: The following untracked working tree files would be overwritten by checkout:
-    .bashrc
-    .gitignore
-Please move or remove them before you can switch branches.
-Aborting
-```
+### Wlan
+list your cards
+`iwconfig`
 
-This is because your `$HOME` folder might already have some stock configuration files which would be overwritten by Git. The solution is simple: back up the files if you care about them, remove them if you don't care. I provide you with a possible rough shortcut to move all the offending files automatically to a backup folder:
-```bash
-mkdir -p .config-backup && \
-config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
-xargs -I{} mv {} .config-backup/{}
-```
+set your card in
+`interface = wlp0s20f3`
 
-Re-run the check out if you had problems:
-```bash
-config checkout
-```
 
-Set the flag `showUntrackedFiles` to `no` on this specific (local) repository:
-```bash
-config config --local status.showUntrackedFiles no
-```
+### backlight
 
-You're done, from now on you can now type config commands to add and update your dotfiles:
-```bash
-config status
-config add .vimrc
-config commit -m "Add vimrc"
-config add .bashrc
-config commit -m "Add bashrc"
-config push
-```
+sudo usermod -a -G video username
 
-References:
-- [Git Bare Repository - A Better Way To Manage Dotfiles](https://www.youtube.com/watch?v=tBoLDpTWVOM)
-- [Dotfiles: Best way to store in a bare git repository](https://www.atlassian.com/git/tutorials/dotfiles)
+**Use the following command to list available cards:**
+`ls -1 /sys/class/backlight/`
+
+sudo chmod g+w /sys/class/backlight/YOUR_CARD/brightness
+chown root:video /sys/class/backlight/YOUR_CARD/brightness
+
+
+# APPs
+spotify
+brave
+notion
+nordpass
+vscode
 
