@@ -439,6 +439,7 @@ ramp-capacity-foreground = ${colors.accent}
 
 label-charging = " %percentage%%"
 label-discharging = " %percentage%%"
+label-full = "  %percentage%%"
 
 [module/cava]
 type = custom/script
