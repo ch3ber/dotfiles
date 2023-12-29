@@ -9,57 +9,89 @@
 ;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
 ;
 ;
-;   To learn more about how to configure Polybar
-;   go to https://github.com/polybar/polybar
-;
-;   The README contains a lot of information
-;
 ;==========================================================
 
 [colors]
+# Material ocean theme
+background = #0F111A
+foreground = #8F93A2
+text = #4b526d
+selection_background = #717cb480
+selection_foreground = #ffffff
+second_background = #181a1f
+disabled = #464b5d
+contrast =  #090b10
+active =  #1a1c25
+border =  #0f111a
+accent = #84ffff
+
+green = #c3e88d
+yellow = #ffcb6b
+blue = #82aaff
+red = #f07178
+purple = #c792ea
+orange = #f78c6c
+cyan = #89ddff
+gray = #717cb4
+white = #eeffff
+error = #ff5370
+
 ;background = ${xrdb:color0:#222}
-background = #111111
-background-alt = #444
+background-alt = ${colors.accent}
+
 ;foreground = ${xrdb:color7:#222}
-foreground = #e5e5e5
-foreground-alt = #555
-primary = #ffb52a
+foreground-alt = #685d98
+
+primary = #89ddff 
 secondary = #e60053
-alert = #bd2c40
-green = #4be349
-[bar/parrot]
+alert = ${colors.red}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+;pseudo-transparency = true
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
+
+[bar/workspaces]
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 80%
-height = 20
-offset-x = 10%
-offset-y = 0.5%
+width = 18%
+height = 24
+offset-x = 5%
+offset-y = 1%
 radius = 10.0
 fixed-center = true
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 1
-line-color = #f00
+line-size = 0
+line-color = ${colors.accent}
 
-border-size = 0
-border-color = #00000000
+border-size = 3
+border-color = ${colors.contrast} 
 
-padding-left = 5
-padding-right = 5
+padding-left = 1
+padding-right = 1
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
-font-0 = Cantarell:size=10
+font-0 = Mononoki Nerd Font:size=10
+;font-0 = Cantarell:size=10
 ;font-1 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 ;font-1 = siji:pixelsize=11;1
 font-2 = FontAwesome:size=10
 
-modules-left = bspwm
-modules-center = memory cpu
-modules-right = xkeyboard backlight wlan battery alsa date powermenu
+modules-center = bspwm
 
 tray-position = right
 tray-padding = 2
@@ -79,6 +111,129 @@ scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 
+[bar/info]
+width = 10%
+height = 24
+offset-x = 30%
+offset-y = 1%
+radius = 10.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 3
+border-color = ${colors.contrast} 
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Mononoki Nerd Font:size=10
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = FontAwesome:size=10
+
+modules-center = memory cpu
+
+[bar/date_time]
+width = 10%
+height = 24
+offset-x = 45%
+offset-y = 1%
+radius = 10.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+border-size = 3
+border-color = ${colors.contrast} 
+padding-left = 2
+padding-right = 2
+
+font-0 = Mononoki Nerd Font:size=10
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = FontAwesome:size=10
+
+modules-center = date
+tray-position = right
+tray-padding = 2
+cursor-click = pointer
+
+[bar/sound_monitor]
+width = 10%
+height = 24
+offset-x = 60%
+offset-y = 1%
+radius = 10.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 3
+border-color = ${colors.contrast} 
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Mononoki Nerd Font:size=10
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = FontAwesome:size=10
+
+modules-center = cava
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+
+[bar/modules]
+width = 20%
+height = 24
+offset-x = 75%
+offset-y = 1%
+radius = 10.0
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+border-size = 3
+border-color = ${colors.contrast} 
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Mononoki Nerd Font:size=10
+font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
+font-2 = FontAwesome:size=10
+
+modules-center = wlan backlight alsa xkeyboard battery
+
+tray-position = right
+tray-padding = 2
+;tray-background = #0063ff
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -88,17 +243,14 @@ label = %title:0:30:...%
 type = internal/xkeyboard
 blacklist-0 = num lock
 
-format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-;format-prefix-underline = ${colors.secondary}
+format-prefix = "  "
+format-prefix-foreground = ${colors.accent}
 
 label-layout = %layout%
-;label-layout-underline = ${colors.secondary}
 
 label-indicator-padding = 2
 label-indicator-margin = 1
 label-indicator-background = ${colors.secondary}
-label-indicator-underline = ${colors.secondary}
 
 [module/filesystem]
 type = internal/fs
@@ -106,9 +258,12 @@ interval = 25
 
 mount-0 = /
 
-label-mounted =  : %percentage_used%%
+format-mounted-prefix = "  "
+label-mounted-prefix-foreground = ${colors.accent}
+label-mounted = %percentage_used%%
+label-mounted-foreground = ${colors.accent}
 label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
+label-unmounted-foreground = ${colors.accent}
 
 [module/bspwm]
 type = internal/bspwm
@@ -120,41 +275,42 @@ reverse-scroll = false
 
 ws-icon-0 = 1;
 ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-5 = 6;
-ws-icon-6 = 7;
-ws-icon-7 = 8;
-ws-icon-8 = 9;
-ws-icon-9 = 10;
-ws-icon-default = " "
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;󰓇
+ws-icon-default = ""
 
 format = <label-state> <label-mode>
 
 label-empty = %icon%
+label-empty-foreground = ${colors.white}
+label-empty-padding = 1
 
 label-focused = %icon%
 label-focused-background = ${colors.background}
 ;label-focused-underline= #6790eb
-label-focused-padding = 0
-label-focused-foreground = #6790EB
+label-focused-padding = 1
+label-focused-foreground = ${colors.accent}
 
 label-occupied = %icon%
-label-occupied-padding = 0
+label-occupied-padding = 1
 label-occupied-background = ${colors.background}
-label-occupied-foreground = #6790EB
+label-occupied-foreground = ${colors.purple}
 
 label-urgent = %icon%
-label-urgent-padding = 0
+label-urgent-padding = 1
 
-label-separator = |
-label-separator-padding = 3
-label-separator-foreground = #ffb52a
+;label-separator = |
+;label-separator-padding = 1
+;label-separator-foreground = ${colors.background}
 
 format-foreground = ${colors.foreground}
 format-background = ${colors.background}
-
 
 [module/backlight]
 type = internal/backlight
@@ -175,22 +331,30 @@ poll-interval = 0
 ; https://wiki.archlinux.org/index.php/Backlight#ACPI
 ; Default: false
 enable-scroll = true
-scroll-interval = 5
+scroll-interval = 10
+format = <ramp> <label>
+ramp-0 = 󰃚
+ramp-1 = 󰃛
+ramp-2 = 󰃜
+ramp-3 = 󰃝
+ramp-4 = 󰃞
+ramp-5 = 󰃟
+ramp-6 = 󰃠
+ramp-foreground = ${colors.accent}
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-;format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-label =  %percentage:2%%
+format-prefix = " "
+format-prefix-foreground = ${colors.accent}
+label = %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-;format-prefix = " "
-format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #4bffdc
-label =  %percentage_used%%
+format-prefix = "  "
+format-prefix-foreground = ${colors.accent}
+label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
@@ -199,21 +363,19 @@ interface = wlp0s20f3
 interval = 3.0
 
 format-connected = <ramp-signal> <label-connected>
-;format-connected-underline = #9f78e1
-label-connected = %{F#4be349} %{F-} %upspeed% %downspeed%
+label-connected = ""
 ;label-connected = %{F#4be349} %{F-} %essid% %upspeed% %downspeed%
 ;label-connected-foreground = ${colors.green}
 format-disconnected = <label-disconnected>
-;format-disconnected-underline = ${self.format-connected-underline}
 label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+ramp-signal-0 = 󰤯
+ramp-signal-1 = 󰤟
+ramp-signal-2 = 󰤢
+ramp-signal-3 = 󰤥
+ramp-signal-4 = 󰤨
+ramp-signal-foreground = ${colors.accent}
 
 [module/eth]
 type = internal/network
@@ -233,39 +395,25 @@ label-disconnected =%{F#e30c05} %{F-} disconnected
 [module/date]
 type = internal/date
 interval = 5
-
-date = %d-%m-%Y
-date-alt = " %Y-%m-%d
-
+date = %d/%m
+date-alt = %d/%m/%Y
 time = %H:%M
 time-alt = %H:%M:%S
-
-
-format-prefix-foreground = ${colors.foreground-alt}
-;format-underline = #0a6cf5
-
-label =  %date% %time%
-
-; [module/pulseaudio]
-; type = internal/pulseaudio
-;
-; format-volume = <label-volume> 
-; label-volume =   %percentage%%
-; ;label-volume-foreground = ${root.foreground}
-; label-muted =  mute
-; label-muted-foreground = #666
+label = %time% | %date%
 
 [module/alsa]
 type = internal/alsa
 
 format-volume = <label-volume>
-label-volume =  %percentage%%
-label-volume-foreground = ${root.foreground}
+format-volume-prefix = "  "
+format-volume-prefix-foreground =${colors.accent} 
+label-volume = %percentage%%
+label-volume-foreground = ${colors.foreground}
 
-;format-muted-prefix = " "
-format-muted-foreground = ${colors.foreground-alt}
-label-muted =  mute
-
+format-muted-prefix = "󰝟 "
+format-muted-prefix-foreground =${colors.red} 
+format-muted-foreground = ${colors.yellow}
+label-muted = mute
 
 [module/battery]
 type = internal/battery
@@ -274,25 +422,13 @@ adapter = AC
 full-at = 100
 
 format-charging = <animation-charging> <label-charging>
-;format-charging-underline = #ffb52a
-
 format-discharging = <label-discharging>
-;format-discharging-underline = ${self.format-charging-underline}
-
-;format-full-prefix = " "
-;format-full-prefix-foreground = ${colors.foreground-alt}
-;format-full-underline = ${self.format-charging-underline}
-
-;ramp-capacity-0 = 
-;ramp-capacity-1 = 
-;ramp-capacity-2 = 
-;ramp-capacity-foreground = ${colors.foreground-alt}
 
 animation-charging-0 = 
 animation-charging-1 = 
 animation-charging-2 = 
-animation-charging-3 = %{F#4be349} 
-;animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-3 = 
+animation-charging-foreground = ${colors.accent}
 animation-charging-framerate = 750
 
 animation-discharging-0 = 
@@ -302,9 +438,18 @@ animation-discharging-3 = 
 animation-discharging-4 = 
 ;animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
-label-charging = %percentage% %
-label-discharging =  %percentage% %
-label-full = %{F#4be349} %percentage% %
+label-charging = " %percentage%%"
+label-discharging =   %percentage%%
+label-full =   %percentage%%
+
+[module/cava]
+type = custom/script
+tail = true
+exec = $HOME/.config/polybar/cava.sh
+format = <label>
+format-font = 5
+label = %output%
+label-foreground = ${colors.accent}
 
 [module/powermenu]
 type = custom/menu
@@ -333,16 +478,3 @@ menu-1-0-exec = menu-open-0
 ;menu-2-1 = cancel
 ;menu-2-1-exec = menu-open-0
 
-[settings]
-screenchange-reload = true
-;compositing-background = xor
-;compositing-background = screen
-;compositing-foreground = source
-;compositing-border = over
-;pseudo-transparency = true
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
-
-; vim:ft=dosini

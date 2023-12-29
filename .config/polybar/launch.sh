@@ -2,4 +2,8 @@
 
 
 killall -q polybar
-polybar parrot
+polybar workspaces
+polybar info
+polybar date_time
+polybar sound_monitor
+polybar modules
