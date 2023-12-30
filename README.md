@@ -1,3 +1,8 @@
+# Screen shots
+![desktop full environment](.docs/full_desktop.png)
+![desktop clean environment](.docs/clean_desktop.png)
+![Command execution in terminal](.docs/lsd_and_batcat.png)
+
 # Depencies
 `pacman -S neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi feh polybar`
 
