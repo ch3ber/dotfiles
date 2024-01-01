@@ -23,8 +23,8 @@ feh -z --bg-fill ~/Imágenes/wallpapers/pixel-art/wallhaven-289q2x.jpg
 #feth -z --bg-fill ~/Imágenes/wallpapers/pixel-art/wallhaven-3z5586.jpg
 
 #toggle layouts
-#setxkbmap -layout us,es -option grp:win_space_toggle
-setxkbmap -layout us,es -option grp:shift_caps_toggle
+#setxkbmap -layout us,latam -option grp:win_space_toggle
+setxkbmap -layout us,latam -option grp:shift_caps_toggle
 
 #mouse window focus
 bspc config focus_follows_pointer true
