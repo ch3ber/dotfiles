@@ -414,29 +414,30 @@ type = internal/cpu
 
 interval = 2
 warn-percentage = 95
-format = <ramp-coreload>
+format = <label> <ramp-load>
+label = %percentage%%
 
 format-prefix = " "
 format-prefix-foreground = ${colors.accent}
 
-ramp-coreload-spacing = 0
-ramp-coreload-0 = ▁
-ramp-coreload-1 = ▂
-ramp-coreload-2 = ▃
-ramp-coreload-3 = ▄
-ramp-coreload-4 = ▅
-ramp-coreload-5 = ▆
-ramp-coreload-6 = ▇
-ramp-coreload-7 = █
+ramp-load-spacing = 0
+ramp-load-0 = ▁
+ramp-load-1 = ▂
+ramp-load-2 = ▃
+ramp-load-3 = ▄
+ramp-load-4 = ▅
+ramp-load-5 = ▆
+ramp-load-6 = ▇
+ramp-load-7 = █
 
-ramp-coreload-0-foreground = ${colors.green}
-ramp-coreload-1-foreground = ${colors.green}
-ramp-coreload-2-foreground = ${colors.green}
-ramp-coreload-3-foreground = ${colors.yellow}
-ramp-coreload-4-foreground = ${colors.orange}
-ramp-coreload-5-foreground = ${colors.red}
-ramp-coreload-6-foreground = ${colors.error}
-ramp-coreload-7-foreground = ${colors.purple}
+ramp-load-0-foreground = ${colors.green}
+ramp-load-1-foreground = ${colors.green}
+ramp-load-2-foreground = ${colors.green}
+ramp-load-3-foreground = ${colors.yellow}
+ramp-load-4-foreground = ${colors.orange}
+ramp-load-5-foreground = ${colors.red}
+ramp-load-6-foreground = ${colors.error}
+ramp-load-7-foreground = ${colors.purple}
 
 [module/memory]
 type = internal/memory
