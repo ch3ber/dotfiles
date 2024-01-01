@@ -11,6 +11,10 @@
 ;
 ;==========================================================
 
+; ========================================
+; COLORS AND THEME
+; ========================================
+
 [colors]
 ; material ocean theme
 ; transparency background
@@ -37,19 +41,23 @@ active =  #1a1c25
 border =  #0f111a
 accent = #84ffff
 
+gray = #717cb4
+blue = #82aaff
+cyan = #89ddff
 green = #c3e88d
 yellow = #ffcb6b
-blue = #82aaff
-red = #f07178
-purple = #c792ea
 orange = #f78c6c
-cyan = #89ddff
-gray = #717cb4
-white = #eeffff
+red = #f07178
 error = #ff5370
+purple = #c792ea
+white = #eeffff
 
 ;background = ${xrdb:color0:#222}
 ;foreground = ${xrdb:color7:#222}
+
+; ========================================
+; GLOBAL SETTINGS
+; ========================================
 
 [settings]
 screenchange-reload = true
@@ -64,6 +72,10 @@ margin-top = 0
 margin-bottom = 0
 
 ; vim:ft=dosini
+
+; ========================================
+; BARS SETTINGS
+; ========================================
 
 [bar/workspaces]
 ;monitor = ${env:MONITOR:HDMI-1}
@@ -244,6 +256,55 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 wm-restack = bspwm
 
+; ========================================
+; CUSTOM  MODULES
+; ========================================
+
+[module/bluetooth]
+type = custom/script
+exec = rofi-bluetooth --status
+interval = 1
+click-left = rofi-bluetooth &
+
+[module/cava]
+type = custom/script
+tail = true
+exec = $HOME/.config/polybar/cava.sh
+format = <label>
+format-font = 5
+label = %output%
+label-foreground = ${colors.yellow}
+
+[module/powermenu]
+type = custom/menu
+
+;expand-right = true
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close = 
+label-close-foreground = ${colors.foreground-alt}
+label-separator = -
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = systemctl reboot
+menu-0-1 =   Shutdown
+menu-0-1-exec = systemctl poweroff
+menu-1-0 = attia
+menu-1-0-exec = menu-open-0
+
+;menu-2-0 = power off
+;menu-2-0-exec = sudo poweroff
+;menu-2-1 = cancel
+;menu-2-1-exec = menu-open-0
+
+; ========================================
+; POLYBAR MODULES
+; ========================================
+
 [module/xwindow]
 type = internal/xwindow
 label = %title:0:30:...%
@@ -350,17 +411,60 @@ ramp-foreground = ${colors.accent}
 
 [module/cpu]
 type = internal/cpu
+
 interval = 2
+warn-percentage = 95
+format = <ramp-coreload>
+
 format-prefix = " "
 format-prefix-foreground = ${colors.accent}
-label = %percentage:2%%
+
+ramp-coreload-spacing = 0
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
+
+ramp-coreload-0-foreground = ${colors.green}
+ramp-coreload-1-foreground = ${colors.green}
+ramp-coreload-2-foreground = ${colors.green}
+ramp-coreload-3-foreground = ${colors.yellow}
+ramp-coreload-4-foreground = ${colors.orange}
+ramp-coreload-5-foreground = ${colors.red}
+ramp-coreload-6-foreground = ${colors.error}
+ramp-coreload-7-foreground = ${colors.purple}
 
 [module/memory]
 type = internal/memory
 interval = 2
+warn-percentage = 95
+format = <label> <ramp-used>
+
 format-prefix = "󰓅 "
 format-prefix-foreground = ${colors.accent}
 label = %percentage_used%%
+
+ramp-used-0 = ▁
+ramp-used-1 = ▂
+ramp-used-2 = ▃
+ramp-used-3 = ▄
+ramp-used-4 = ▅
+ramp-used-5 = ▆
+ramp-used-6 = ▇
+ramp-used-7 = █
+
+ramp-used-0-foreground = ${colors.green}
+ramp-used-1-foreground = ${colors.green}
+ramp-used-2-foreground = ${colors.green}
+ramp-used-3-foreground = ${colors.yellow}
+ramp-used-4-foreground = ${colors.orange}
+ramp-used-5-foreground = ${colors.red}
+ramp-used-6-foreground = ${colors.error}
+ramp-used-7-foreground = ${colors.purple}
 
 [module/wlan]
 type = internal/network
@@ -379,8 +483,9 @@ label-disconnected = %ifname% disconnected
 ramp-signal-0 = 󰤯
 ramp-signal-1 = 󰤟
 ramp-signal-2 = 󰤢
-ramp-signal-3 = 󰤥
-ramp-signal-4 = 󰤨
+;ramp-signal-3 = 󰤥
+ramp-signal-3 = 󰤨
+;ramp-signal-4 = 󰤨
 ramp-signal-foreground = ${colors.accent}
 
 [module/eth]
@@ -442,41 +547,13 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.accent}
 
+ramp-capacity-0-foreground = ${colors.purple}
+ramp-capacity-1-foreground = ${colors.red}
+ramp-capacity-2-foreground = ${colors.orange}
+ramp-capacity-3-foreground = ${colors.yellow}
+ramp-capacity-4-foreground = ${colors.green}
+
 label-charging = " %percentage%%"
 label-discharging = " %percentage%%"
 label-full = "  %percentage%%"
 
-[module/cava]
-type = custom/script
-tail = true
-exec = $HOME/.config/polybar/cava.sh
-format = <label>
-format-font = 5
-label = %output%
-label-foreground = ${colors.yellow}
-
-[module/powermenu]
-type = custom/menu
-
-;expand-right = true
-
-format-spacing = 1
-
-label-open = 
-label-open-foreground = ${colors.secondary}
-label-close = 
-label-close-foreground = ${colors.foreground-alt}
-label-separator = -
-label-separator-foreground = ${colors.foreground-alt}
-
-menu-0-0 = reboot
-menu-0-0-exec = systemctl reboot
-menu-0-1 =   Shutdown
-menu-0-1-exec = systemctl poweroff
-menu-1-0 = attia
-menu-1-0-exec = menu-open-0
-
-;menu-2-0 = power off
-;menu-2-0-exec = sudo poweroff
-;menu-2-1 = cancel
-;menu-2-1-exec = menu-open-0
