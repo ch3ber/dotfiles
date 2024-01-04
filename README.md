@@ -4,7 +4,7 @@
 ![Command execution in terminal](.docs/lsd_and_batcat.png)
 
 # Depencies
-`pacman -S neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi feh polybar`
+`pacman -S neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi rofi-bluetooth-git feh polybar`
 
 ### Extra
 pacman -S network-manager-applet
