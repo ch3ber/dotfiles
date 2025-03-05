@@ -548,10 +548,10 @@ ramp-capacity-3 = 
 ramp-capacity-4 = 
 ramp-capacity-foreground = ${colors.accent}
 
-ramp-capacity-0-foreground = ${colors.purple}
-ramp-capacity-1-foreground = ${colors.red}
-ramp-capacity-2-foreground = ${colors.orange}
-ramp-capacity-3-foreground = ${colors.yellow}
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1-foreground = ${colors.orange}
+ramp-capacity-2-foreground = ${colors.yellow}
+ramp-capacity-3-foreground = ${colors.green}
 ramp-capacity-4-foreground = ${colors.green}
 
 label-charging = " %percentage%%"
