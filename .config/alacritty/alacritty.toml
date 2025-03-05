@@ -1,4 +1,4 @@
-[shell]
+[terminal.shell]
 program = "/bin/zsh"
 
 [window]
@@ -108,3 +108,5 @@ mods = "Control"
 action = "DecreaseFontSize"
 key = "Minus"
 mods = "Control"
+
+[terminal]
