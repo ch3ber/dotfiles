@@ -15,12 +15,12 @@ bspc config borderless_monocle   true
 bspc config gapless_monocle      true
 
 #wallpapers
-#feh -z --bg-fill ~/Imágenes/wallpapers/pixel-art/**
-#feh -z --bg-fill ~/Imágenes/wallpapers/pixel-art/wallhaven-ymp23d.png
-feh -z --bg-fill ~/Imágenes/wallpapers/pixel-art/wallhaven-289q2x.jpg
-#feh -z --bg-fill ~/Imágenes/wallpapers/pixel-art/wallhaven-9d6m2w.png
-#feh -z --bg-fill ~/Imágenes/wallpapers/pixel-art/wallhaven-1kxp9g.jpg
-#feth -z --bg-fill ~/Imágenes/wallpapers/pixel-art/wallhaven-3z5586.jpg
+#feh -z --bg-fill ~/wallpapers/pixel-art/**
+#feh -z --bg-fill ~/wallpapers/pixel-art/wallhaven-ymp23d.png
+feh -z --bg-fill ~/wallpapers/pixel-art/wallhaven-289q2x.jpg
+#feh -z --bg-fill ~/wallpapers/pixel-art/wallhaven-9d6m2w.png
+#feh -z --bg-fill ~/wallpapers/pixel-art/wallhaven-1kxp9g.jpg
+#feth -z --bg-fill ~/wallpapers/pixel-art/wallhaven-3z5586.jpg
 
 #toggle layouts
 #setxkbmap -layout us,latam -option grp:win_space_toggle
