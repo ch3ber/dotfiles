@@ -74,7 +74,6 @@ plugins=(
   git
   zsh-syntax-highlighting
   zsh-autosuggestions
-  you-should-use
 )
 
 source $ZSH/oh-my-zsh.sh
