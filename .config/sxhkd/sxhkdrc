@@ -142,7 +142,10 @@ super + e
 
 #Scrot
 Print
-	scrot $(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d-%s_screenshot_$wx$h.png -e 'xclip -selection clipboard -target image/png -i $f'
+  mkdir -p ~/screenshots && \
+  scrot -q 100 -o ~/screenshots/screenshot_%Y-%m-%d_%H-%M-%S.png && \
+  xclip -selection clipboard -t image/png -i "$(ls -t ~/screenshots/screenshot_*.png | head -n1)"
+	#scrot $(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d-%s_screenshot_$wx$h.png -e 'xclip -selection clipboard -target image/png -i $f'
 	#scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES)'
 
 #screeenshooter
