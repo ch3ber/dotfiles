@@ -24,7 +24,12 @@ sudo pacman -S --noconfirm \
     rofi \
     feh \
     polybar \
-    network-manager-applet
+    network-manager-applet \
+    picom \
+    xclip \
+    scrot \
+    node \
+    npm
 
 # Instalar yay (si no está instalado)
 if ! command -v yay &> /dev/null; then
@@ -43,15 +48,18 @@ if [ ! -d "$HOME/.oh-my-zsh" ]; then
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 # Clonar dotfiles (si no existen)
 if [ ! -d "$HOME/.dotfiles" ]; then
   git clone https://github.com/ch3ber/dotfiles.git "$HOME/.dotfiles"
 fi
 
 # Clonar wallpapers (si no existen)
-if [ ! -d "$HOME/wallpapers" ]; then
-  git clone https://github.com/ch3ber/wallpapers.git "$HOME/wallpapers"
-fi
+sudo mkdir -p /usr/share/backgrounds 
+sudo wget https://raw.githubusercontent.com/ch3ber/wallpapers/refs/heads/master/pixel-art/wallhaven-289q2x.jpg 
+sudo mv wallhaven-289q2x.jpg /usr/share/backgrounds
 
 # Copiar dotfiles al sistema (reemplazando archivos existentes)
 cp -rf "$HOME/.dotfiles/." "$HOME/"
