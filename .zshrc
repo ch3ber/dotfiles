@@ -114,5 +114,6 @@ alias n="/bin/nvim"
 alias ns="/bin/nvim -S"
 alias ce="/bin/code . && exit"
 alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
-alias exisde='echo xd'
+alias exisde='/usr/bin/echo xd'
+alias joder='/usr/bin/echo joder tio'
 
