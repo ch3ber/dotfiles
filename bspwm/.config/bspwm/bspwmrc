@@ -35,4 +35,4 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-input set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
+xinput set-prop "Elan Touchpad" "libinput Natural Scrolling Enabled" 1
