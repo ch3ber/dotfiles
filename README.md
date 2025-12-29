@@ -6,7 +6,11 @@
 
 # Depencies
 
-`pacman -S stow neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi rofi-bluetooth-git feh polybar`
+For bspwm
+`pacman -S spectacle stow neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi rofi-bluetooth-git feh polybar`
+
+For hyprland
+`pacman -S hyprland wofi waybar stow neovim lsd bat zsh alacritty acpi tmux sxhkd feh`
 
 ### Extra
 

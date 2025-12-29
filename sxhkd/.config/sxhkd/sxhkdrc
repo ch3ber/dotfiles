@@ -126,7 +126,7 @@ super + {Left,Down,Up,Right}
 
 # take a screenshot
 super + shift + s
-	scrot -s $(xdg-user-dir PICTURES)/screenshots/%Y-%m-%d-%s_screenshot_$wx$h.png -e 'xclip -selection clipboard -target image/png -i $f'
+	spectacle
 
 # record the screen
 super + shift + r
