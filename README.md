@@ -1,8 +1,8 @@
 # Screenshots
 
-![desktop full environment](.docs/full_desktop.png)
-![desktop clean environment](.docs/clean_desktop.png)
-![Command execution in terminal](.docs/lsd_and_batcat.png)
+![desktop full environment](docs/full_desktop.png)
+![desktop clean environment](docs/clean_desktop.png)
+![Command execution in terminal](docs/lsd_and_batcat.png)
 
 # Depencies
 
