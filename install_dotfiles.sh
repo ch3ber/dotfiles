@@ -27,7 +27,7 @@ sudo pacman -S --noconfirm \
     network-manager-applet \
     picom \
     xclip \
-    scrot \
+    spectacle \
     node \
     npm
 
@@ -41,7 +41,7 @@ if ! command -v yay &> /dev/null; then
 fi
 
 # Instalar paquetes del AUR
-yay -S --noconfirm rofi-bluetooth-git nerd-fonts-mononoki nerd-fonts-ubuntu-mono
+yay -S --noconfirm nerd-fonts-mononoki nerd-fonts-ubuntu-mono
 
 # Instalar Oh My Zsh (si no está instalado)
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
@@ -51,21 +51,16 @@ fi
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-# Clonar dotfiles (si no existen)
-if [ ! -d "$HOME/.dotfiles" ]; then
-  git clone https://github.com/ch3ber/dotfiles.git "$HOME/.dotfiles"
-fi
-
 # Clonar wallpapers (si no existen)
-sudo mkdir -p /usr/share/backgrounds 
-sudo wget https://raw.githubusercontent.com/ch3ber/wallpapers/refs/heads/master/pixel-art/wallhaven-289q2x.jpg 
+sudo mkdir -p /usr/share/backgrounds
+sudo wget https://raw.githubusercontent.com/ch3ber/wallpapers/refs/heads/master/pixel-art/wallhaven-289q2x.jpg
 sudo mv wallhaven-289q2x.jpg /usr/share/backgrounds
-
-# Copiar dotfiles al sistema (reemplazando archivos existentes)
-cp -rf "$HOME/.dotfiles/." "$HOME/"
 
 # Cambiar shell por defecto a Zsh
 chsh -s $(which zsh)
+
+# Copiar dotfiles al sistema (reemplazando archivos existentes)
+cp -rf "$HOME/.dotfiles/." "$HOME/"
 
 # Finalización
 printf "\n\e[32m¡Instalación y configuración completadas! Inicia sesión de nuevo para notar los cambios.\e[0m\n"
