@@ -4,29 +4,34 @@
 ![desktop clean environment](docs/clean_desktop.png)
 ![Command execution in terminal](docs/lsd_and_batcat.png)
 
-# Depencies
+# Quick Install (Arch Linux)
 
-For bspwm
-`pacman -S spectacle stow neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi rofi-bluetooth-git feh polybar`
+```bash
+bash <(curl -sL https://raw.githubusercontent.com/ch3ber/dotfiles/main/install_dotfiles.sh)
+```
 
-For hyprland
-`pacman -S hyprland hyprlauncher dunst waybar stow neovim lsd bat zsh alacritty tmux grim slurp wl-clipboard`
+The installer is interactive — it lets you choose which packages to install and applies the dotfiles with stow.
 
-### Extra
+# Manual Install
 
-pacman -S network-manager-applet
-To run `nm-applet`
+### Dependencies
 
-# Depencies for parrot os
+For bspwm (X11):
+```
+pacman -S spectacle stow neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi feh polybar picom xclip
+```
 
-`apt install vim neovim lsd bat zsh acpi rofi feh polybar build-essential xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev libxcb-xtest0-dev libxcb-shape0-dev`
+For hyprland (Wayland):
+```
+pacman -S hyprland hyprlauncher dunst waybar stow neovim lsd bat zsh alacritty tmux grim slurp wl-clipboard
+```
 
-# Fonts
+### Fonts
 
 Mononoki Nerd Font
 Ubuntu Mono Nerd Font
 
-# Install
+### Stow
 
 For bspwm:
 `stow -v -t "$HOME" alacritty bspwm nvim picom polybar sxhkd zsh`
