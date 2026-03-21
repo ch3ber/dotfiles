@@ -10,7 +10,7 @@ For bspwm
 `pacman -S spectacle stow neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi rofi-bluetooth-git feh polybar`
 
 For hyprland
-`pacman -S hyprland wofi waybar stow neovim lsd bat zsh alacritty acpi tmux sxhkd feh`
+`pacman -S hyprland hyprlauncher dunst waybar stow neovim lsd bat zsh alacritty tmux grim slurp wl-clipboard`
 
 ### Extra
 
@@ -28,7 +28,11 @@ Ubuntu Mono Nerd Font
 
 # Install
 
+For bspwm:
 `stow -v -t "$HOME" alacritty bspwm nvim picom polybar sxhkd zsh`
+
+For hyprland:
+`stow -v -t "$HOME" alacritty hyprland nvim waybar zsh`
 
 # ZSH config
 
