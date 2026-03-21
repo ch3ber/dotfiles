@@ -29,6 +29,33 @@ print_error() {
   printf "${RED}%s${RESET}\n" "$1"
 }
 
+# Banner display based on terminal type
+print_banner() {
+  if [ -t 1 ] && [ -z "$DISPLAY" ] && [ -z "$WAYLAND_DISPLAY" ]; then
+    # TTY: ASCII-only banner (figlet slant)
+    printf "${BOLD}${CYAN}"
+    cat <<'BANNER'
+        __   _____ __                     __      __  _____ __
+  _____/ /_ |__  // /_  ___  _____   ____/ /___  / /_/ __(_) /__  _____
+ / ___/ __ \ /_ </ __ \/ _ \/ ___/  / __  / __ \/ __/ /_/ / / _ \/ ___/
+/ /__/ / / /__/ / /_/ /  __/ /     / /_/ / /_/ / /_/ __/ / /  __(__  )
+\___/_/ /_/____/_.___/\___/_/      \__,_/\____/\__/_/ /_/_/\___/____/
+BANNER
+    printf "${RESET}\n"
+  else
+    # Graphical terminal: Unicode banner (toilet future + border) with cyan
+    printf "${BOLD}${CYAN}"
+    cat <<'BANNER'
+ ┌───────────────────────────────────────────┐
+ │┏━╸╻ ╻┏━┓┏┓ ┏━╸┏━┓   ╺┳┓┏━┓╺┳╸┏━╸╻╻  ┏━╸┏━┓│
+ │┃  ┣━┫╺━┫┣┻┓┣╸ ┣┳┛    ┃┃┃ ┃ ┃ ┣╸ ┃┃  ┣╸ ┗━┓│
+ │┗━╸╹ ╹┗━┛┗━┛┗━╸╹┗╸   ╺┻┛┗━┛ ╹ ╹  ╹┗━╸┗━╸┗━┛│
+ └───────────────────────────────────────────┘
+BANNER
+    printf "${RESET}\n"
+  fi
+}
+
 # Check if running on Arch Linux
 check_arch() {
   if ! command -v pacman &>/dev/null; then
@@ -86,14 +113,7 @@ done
 select_packages() {
   while true; do
     clear
-    printf "${BOLD}${CYAN}"
-    printf "   ___  _  _ ____  ____  ____  ____\n"
-    printf "  / __)| || ||__ / | __ )| ___||  _ \\ \n"
-    printf " | |   | || |_ |_ \\|  _ \\| __| | |_) |\n"
-    printf " | |__ |__  _|__) || |_) | |___|  _ < \n"
-    printf "  \\___/   |_||____/|____/|_____|_| \\_\\ \n"
-    printf "${RESET}\n"
-    printf "${BOLD} dotfiles installer${RESET}\n"
+    print_banner
     printf " ─────────────────────────────────────\n\n"
     printf " Select packages to install:\n\n"
 
