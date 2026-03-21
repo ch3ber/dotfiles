@@ -75,10 +75,6 @@ alias cat=/bin/batcat
 alias szsh="source ~/.zshrc"
 ```
 
-# Alacritty
-
-### Config
-
 # Install manual bspwm and sxhkd
 
 ```
