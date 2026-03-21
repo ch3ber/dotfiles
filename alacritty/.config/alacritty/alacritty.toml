@@ -39,7 +39,7 @@ shape = "Block"
 blinking = "On"
 
 [font]
-size = 9.0
+size = 11.0
 
 [font.bold]
 family = "Mononoki Nerd Font"

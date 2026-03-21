@@ -116,3 +116,21 @@ alias config='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 alias exisde='/usr/bin/echo xd'
 alias joder='/usr/bin/echo joder tio'
 
+
+# bun completions
+[ -s "/home/ch3ber/.bun/_bun" ] && source "/home/ch3ber/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# pnpm
+export PNPM_HOME="/home/ch3ber/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+# Created by `pipx` on 2026-02-17 04:56:02
+export PATH="$PATH:/home/ch3ber/.local/bin"
