@@ -18,12 +18,12 @@ The installer is interactive — it lets you choose which packages to install an
 
 For bspwm (X11):
 ```
-pacman -S spectacle stow neovim lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi feh polybar picom xclip
+pacman -S spectacle stow lsd bat zsh alacritty acpi tmux bspwm sxhkd rofi feh polybar picom xclip
 ```
 
 For hyprland (Wayland):
 ```
-pacman -S hyprland hyprlauncher dunst waybar stow neovim lsd bat zsh alacritty tmux grim slurp wl-clipboard
+pacman -S hyprland hyprlauncher dunst waybar stow lsd bat zsh alacritty tmux grim slurp wl-clipboard
 ```
 
 ### Fonts
@@ -34,10 +34,10 @@ Ubuntu Mono Nerd Font
 ### Stow
 
 For bspwm:
-`stow -v -t "$HOME" alacritty bspwm nvim picom polybar sxhkd zsh`
+`stow -v -t "$HOME" alacritty bspwm picom polybar sxhkd zsh`
 
 For hyprland:
-`stow -v -t "$HOME" alacritty hyprland nvim waybar zsh`
+`stow -v -t "$HOME" alacritty hyprland waybar zsh`
 
 # ZSH config
 

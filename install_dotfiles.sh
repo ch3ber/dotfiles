@@ -40,17 +40,12 @@ check_arch() {
 # Package groups: name|description|pacman_packages|aur_packages|stow_dirs
 declare -A PKG_NAMES PKG_DESCS PKG_PACMAN PKG_AUR PKG_STOW PKG_SELECTED
 
-PACKAGES=(zsh neovim alacritty bspwm hyprland polybar waybar picom)
+PACKAGES=(zsh alacritty bspwm hyprland polybar waybar picom)
 
 PKG_NAMES[zsh]="zsh"
 PKG_DESCS[zsh]="Zsh shell + Oh My Zsh"
 PKG_PACMAN[zsh]="zsh fzf"
 PKG_STOW[zsh]="zsh"
-
-PKG_NAMES[neovim]="neovim"
-PKG_DESCS[neovim]="Neovim editor"
-PKG_PACMAN[neovim]="neovim ripgrep"
-PKG_STOW[neovim]="nvim"
 
 PKG_NAMES[alacritty]="alacritty"
 PKG_DESCS[alacritty]="Alacritty terminal"
